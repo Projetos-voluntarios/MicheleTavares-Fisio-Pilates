@@ -68,9 +68,11 @@
             </div>
         </section>
 
+        <!-- SEÇÃO DE SERVIÇOS + AVALIAÇÕES GOOGLE -->
         <section id="servicos" class="servicos">
             <div class="container">
                 <h2>Serviços</h2>
+                
                 <div class="servicos-grid">
                     <article class="servico-card">
                         <h3>Fisioterapia</h3>
@@ -88,13 +90,18 @@
             </div>
         </section>
 
-        <!-- SEÇÃO DE LOCALIZAÇÃO COM MAPA -->
+        <!-- LOCALIZAÇÃO -->
         <section id="localizacao" class="localizacao">
             <div class="container">
                 <h2>Localização</h2>
                 <div class="localizacao-grid">
                     <div class="mapa-container">
-                        <div id="map" class="mapa"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.002467483425!2d-43.71565792483617!3d-22.61276597946307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x283f1fd7dbb55bff%3A0xcea24bb9c0e3f9c1!2sEspa%C3%A7o%20Integrativo%20Michele%20Tavares%20-%20FISIOTERAPIA%20e%20PILATES%20.%20CREFITO%20%3A%20331349-F!5e1!3m2!1spt-BR!2sbr!4v1762721621065!5m2!1spt-BR!2sbr" 
+                                style="border:0; width: 100%; height: 100%;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                     <div class="localizacao-info">
                         <h3>Venha me visitar</h3>
@@ -121,21 +128,16 @@
             </div>
         </section>
 
-        <!-- SEÇÃO DE CONTATO COM INFORMAÇÕES E FORMULÁRIO -->
+        <!-- CONTATO -->
         <section id="contato" class="contato">
             <div class="container">
                 <h2>Contato</h2>
                 <div class="contato-grid">
-                    <!-- Informações de Contato -->
                     <div class="info-contato">
                         <div class="info-contato-grid">
-                            
-                            <!-- Imagem do lado esquerdo -->
                             <div class="info-contato-imagem">
                                 <img src="img/local_instagram.png" alt="Imagem de contato" class="imagem-contato">
                             </div>
-                            
-                            <!-- Informações do lado direito -->
                             <div class="info-contato-detalhes">
                                 <div class="info-item">
                                     <i class="fas fa-phone"></i>
@@ -152,8 +154,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Redes Sociais abaixo de todos -->
                             <div class="redes-sociais">
                                 <h4>Siga-me nas redes sociais</h4>
                                 <div class="social-icons">
@@ -169,17 +169,14 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Formulário de Contato -->
+
                     <form class="contato-form" action="https://formsubmit.co/marinamicas@gmail.com" method="POST">
-                        <!-- Configurações do FormSubmit -->
                         <input type="hidden" name="_autoresponse" value="Olá! Recebi sua mensagem e agradeço pelo contato. Em breve retornarei. Atenciosamente, Michele Tavares">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_subject" value="Nova mensagem do site - Michele Tavares">
                         <input type="hidden" name="_next" value="https://projetos-voluntarios.github.io/MicheleTavares-Fisio-Pilates/pages/obrigada.html">
                         <input type="hidden" name="_captcha" value="false">
                         
-                        <!-- Seus campos normais -->
                         <h3>Envie uma Mensagem</h3>
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Seu nome" required>
@@ -193,7 +190,6 @@
                         <div class="form-group">
                             <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
                         </div>
-                        
                         <button type="submit" class="btn">Enviar Mensagem</button>
                     </form>
                 </div>
@@ -231,91 +227,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <script>
-        // Inicialização do Mapa
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar mapa
-            const map = L.map('map').setView([-22.6100, -43.6619], 15);
-            
-            // Adicionar tile layer do OpenStreetMap
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            
-            // Adicionar marcador personalizado
-            const customIcon = L.divIcon({
-                html: `
-                    <div style="background-color: #62BAA1; width: 40px; height: 40px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
-                        <div style="background-color: white; width: 15px; height: 15px; border-radius: 50%;"></div>
-                    </div>
-                `,
-                className: 'custom-marker',
-                iconSize: [40, 40],
-                iconAnchor: [20, 40]
-            });
-            
-            // Adicionar marcador
-            const marker = L.marker([-22.6100, -43.6619], { icon: customIcon }).addTo(map);
-            
-            // Adicionar popup
-            marker.bindPopup(`
-                <div style="padding: 10px; text-align: center;">
-                    <h3 style="margin: 0 0 5px 0; color: #034d2c;">Michele Tavares</h3>
-                    <p style="margin: 0; color: #333; font-weight: 500;">Fisioterapia & Pilates</p>
-                    <p style="margin: 5px 0 0 0; color: #666; font-size: 12px;">RJ-127, 11955 - Barreira, Paracambi - RJ</p>
-                </div>
-            `).openPopup();
-            
-            // JavaScript do formulário
-            const form = document.querySelector('.contato-form');
-            const messageDiv = document.getElementById('form-message');
-            
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    
-                    // Mostrar loading
-                    showMessage('Enviando sua mensagem...', 'loading');
-                    submitBtn.textContent = 'Enviando...';
-                    submitBtn.disabled = true;
-                    
-                    // Timeout para caso demore muito
-                    setTimeout(() => {
-                        if (submitBtn.disabled) {
-                            showMessage('Ainda processando seu envio...', 'loading');
-                        }
-                    }, 3000);
-                });
-            }
-            
-            function showMessage(text, type) {
-                if (!messageDiv) return;
-                
-                messageDiv.textContent = text;
-                messageDiv.className = '';
-                messageDiv.style.display = 'block';
-                
-                switch(type) {
-                    case 'success':
-                        messageDiv.classList.add('message-success');
-                        break;
-                    case 'error':
-                        messageDiv.classList.add('message-error');
-                        break;
-                    case 'loading':
-                        messageDiv.classList.add('message-loading');
-                        break;
-                }
-                
-                // Rolagem suave até a mensagem
-                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        });
-    </script>
 </body>
 </html>

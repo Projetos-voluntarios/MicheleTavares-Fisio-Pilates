@@ -16,7 +16,7 @@
 }
 
 html {
-    scroll-padding-top: 50px;
+    scroll-padding-top: 90px;
     scroll-behavior: smooth;
 }
 
@@ -39,7 +39,7 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1100;
 }
 
 .nav {
@@ -166,6 +166,7 @@ section h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .servico-card {
@@ -187,6 +188,128 @@ section h2 {
     font-size: 1.3rem;
 }
 
+/* Google Reviews Integration */
+.google-reviews-integration {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reviews-header h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.rating-summary {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.google-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stars-large {
+    color: #FFD700;
+    font-size: 1.8rem;
+}
+
+.rating-score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.reviews-count {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.btn-review {
+    background: #4285F4;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-review:hover {
+    background: #3367D6;
+}
+
+/* Reviews Container */
+.reviews-container {
+    min-height: 200px;
+    position: relative;
+}
+
+.reviews-loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--primary-color);
+}
+
+.reviews-loading i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.reviews-info {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.integration-info h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.integration-info ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.integration-info li {
+    margin-bottom: 0.5rem;
+}
+
+.integration-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.integration-info a:hover {
+    text-decoration: underline;
+}
+
+.reviews-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-all-reviews {
+    background: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-all-reviews:hover {
+    background: var(--secondary-color);
+}
+
 /* Localização Section */
 .localizacao {
     background: var(--light-gray);
@@ -204,12 +327,7 @@ section h2 {
     overflow: hidden;
     box-shadow: var(--shadow);
     height: 100%;
-}
-
-.mapa {
     width: 100%;
-    height: 400px;
-    border: none;
 }
 
 .localizacao-info {
@@ -459,7 +577,23 @@ section h2 {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsividade */
+/* Responsividade para Localização */
+@media (max-width: 968px) {
+    .localizacao-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mapa-container {
+        height: 350px;
+        order: 1;
+    }
+    
+    .localizacao-info {
+        order: 2;
+    }
+}
+
 @media (max-width: 768px) {
     .nav {
         grid-template-columns: 1fr;
@@ -481,13 +615,36 @@ section h2 {
         gap: 2rem;
     }
     
-    .localizacao-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .google-reviews-integration {
+        padding: 2rem;
     }
     
-    .mapa {
+    .google-rating {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .localizacao-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .mapa-container {
         height: 300px;
+    }
+    
+    .localizacao-info {
+        padding: 1.5rem;
+    }
+    
+    .localizacao-info .info-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .localizacao-info .info-item i {
+        margin-top: 0;
     }
     
     .contato-grid {
@@ -497,7 +654,6 @@ section h2 {
     
     .info-contato-grid {
         grid-template-areas:
-            "titulo"
             "imagem"
             "detalhes"
             "redes";
@@ -506,14 +662,9 @@ section h2 {
         text-align: center;
     }
     
-    .imagem-contato {
-        width: 150px;
-        height: 150px;
-    }
-    
     .info-item {
-        justify-content: center;
-        text-align: center;
+        justify-content: left;
+        text-align: left;
     }
     
     .social-icons {
@@ -578,11 +729,6 @@ section h2 {
         justify-self: center;
     }
     
-    .imagem-contato {
-        width: 120px;
-        height: 120px;
-    }
-    
     .social-icon {
         width: 100%;
         padding: 0.75rem 1rem;
@@ -592,8 +738,25 @@ section h2 {
         grid-template-columns: 1fr;
     }
     
-    .mapa {
+    .localizacao-grid {
+        gap: 1rem;
+    }
+    
+    .mapa-container {
         height: 250px;
+    }
+    
+    .localizacao-info {
+        padding: 1rem;
+    }
+    
+    .btn-mapa {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .google-reviews-integration {
+        padding: 1.5rem;
     }
 }
 
