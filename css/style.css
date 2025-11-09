@@ -7,7 +7,7 @@
 
 :root {
     --primary-color: #62BAA1;
-    --secondary-color: #034d2c;
+    --secondary-color: #067945;
     --accent-color: #E74C3C;
     --text-color: #333333;
     --light-gray: #F5F5F5;
@@ -342,13 +342,6 @@ section h2 {
     color: var(--secondary-color);
 }
 
-.localizacao-info .info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
-}
-
 .localizacao-info .info-item i {
     color: var(--primary-color);
     margin-top: 0.25rem;
@@ -641,16 +634,6 @@ section h2 {
     
     .localizacao-info {
         padding: 1.5rem;
-    }
-    
-    .localizacao-info .info-item {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-    
-    .localizacao-info .info-item i {
-        margin-top: 0;
     }
     
     .contato-grid {
