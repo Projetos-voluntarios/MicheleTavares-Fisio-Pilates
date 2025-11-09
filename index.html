@@ -13,6 +13,7 @@
     <meta property="og:type" content="website">
     
     <title>Michele Tavares - Fisioterapia & Pilates | Paracambi - RJ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,12 +99,13 @@
             <div class="container">
                 <h2>Sobre Mim</h2>
                 <div class="sobre-grid">
+                    <div class="sobre-imagem">
+                        <img src="img/MicheleTavares.jpg" class="imagem-redonda" alt="Michele Tavares - Fisioterapeuta e Professora de Pilates">
+                    </div>
                     <div class="sobre-texto">
                         <p>Sou Michele Tavares, fisioterapeuta e professora de Pilates com vasta experiência em reabilitação e exercícios terapêuticos. Atuo no município de Paracambi, Rio de Janeiro, oferecendo atendimento personalizado e de qualidade.</p>
+                        <br>
                         <p>Minha missão é ajudar pacientes a recuperarem sua mobilidade, aliviarem dores e melhorarem sua qualidade de vida através de técnicas modernas e comprovadas da fisioterapia e do método Pilates.</p>
-                    </div>
-                    <div class="sobre-imagem">
-                        <img src="https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Michele+Tavares" alt="Michele Tavares - Fisioterapeuta e Professora de Pilates">
                     </div>
                 </div>
             </div>
@@ -118,10 +120,6 @@
                         <p>Atendimento especializado em reabilitação musculoesquelética, tratamento de dores crônicas e recuperação pós-cirúrgica.</p>
                     </article>
                     <article class="servico-card">
-                        <h3>Pilates</h3>
-                        <p>Aulas individuais ou em grupo do método Pilates para condicionamento físico, correção postural e fortalecimento muscular.</p>
-                    </article>
-                    <article class="servico-card">
                         <h3>Pilates Terapêutico</h3>
                         <p>Combinação do método Pilates com técnicas de fisioterapia para tratamento específico de condições musculoesqueléticas.</p>
                     </article>
@@ -133,29 +131,72 @@
             </div>
         </section>
 
+        <!-- SEÇÃO DE CONTATO COM INFORMAÇÕES E FORMULÁRIO -->
         <section id="contato" class="contato">
             <div class="container">
-                <h2>Entre em Contato</h2>
+                <h2>Contato</h2>
                 <div class="contato-grid">
-                    <div class="contato-info">
-                        <h3>Informações de Contato</h3>
-                        <div class="info-item">
-                            <strong>Localização:</strong>
-                            <p>Paracambi, Rio de Janeiro</p>
-                        </div>
-                        <div class="info-item">
-                            <strong>Telefone:</strong>
-                            <p>(21) 99999-9999</p>
-                        </div>
-                        <div class="info-item">
-                            <strong>Email:</strong>
-                            <p>contato@micheletavares.com</p>
-                        </div>
-                        <div class="info-item">
-                            <strong>Horário de Atendimento:</strong>
-                            <p>Segunda a Sexta: 8h às 19h<br>Sábado: Temporariamente indisponível</p>
+                    <!-- Informações de Contato -->
+                    <div class="info-contato">
+                        <div class="info-contato-grid">
+                            <!-- Título em linha única -->
+                            <h3 class="info-contato-titulo">Entre em Contato</h3>
+                            
+                            <!-- Imagem do lado esquerdo -->
+                            <div class="info-contato-imagem">
+                                <img src="img/local_instagram.png" alt="Imagem de contato" class="imagem-contato">
+                            </div>
+                            
+                            <!-- Informações do lado direito -->
+                            <div class="info-contato-detalhes">
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <strong>Localização:</strong>
+                                        <p>Paracambi, Rio de Janeiro</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <strong>Telefone:</strong>
+                                        <p><a href="tel:+5521974701741">(21) 97470-1741</a></p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>Email:</strong>
+                                        <p><a href="mailto:contato@micheletavares.com">contato@micheletavares.com</a></p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <strong>Horário de Atendimento:</strong>
+                                        <p>Segunda a Sexta: 8h às 19h<br>Sábado: Temporariamente indisponível</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Redes Sociais abaixo de todos -->
+                            <div class="redes-sociais">
+                                <h4>Siga-me nas redes sociais</h4>
+                                <div class="social-icons">
+                                    <a href="https://www.instagram.com/fisioterapeuta.micheletavares/" target="_blank" class="social-icon instagram">
+                                        <i class="fab fa-instagram"></i>
+                                        <span>Instagram</span>
+                                    </a>
+                                    <a href="https://wa.me/5521974701741?text=Olá! Gostaria de agendar uma consulta." target="_blank" class="social-icon whatsapp">
+                                        <i class="fab fa-whatsapp"></i>
+                                        <span>WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- Formulário de Contato -->
                     <form class="contato-form" action="https://formsubmit.co/marinamicas@gmail.com" method="POST">
                         <h3>Envie uma Mensagem</h3>
                         
@@ -179,18 +220,18 @@
                         
                         <button type="submit" class="btn">Enviar Mensagem</button>
                     </form>
-
-                    <div id="form-message" style="display: none;"></div>
-
-                    <script>
-                    // JavaScript simplificado para feedback
-                    document.querySelector('.contato-form')?.addEventListener('submit', function() {
-                        const btn = this.querySelector('button[type="submit"]');
-                        btn.textContent = 'Enviando...';
-                        btn.disabled = true;
-                    });
-                    </script>
                 </div>
+
+                <div id="form-message" style="display: none;"></div>
+
+                <script>
+                // JavaScript simplificado para feedback
+                document.querySelector('.contato-form')?.addEventListener('submit', function() {
+                    const btn = this.querySelector('button[type="submit"]');
+                    btn.textContent = 'Enviando...';
+                    btn.disabled = true;
+                });
+                </script>
             </div>
         </section>
     </main>
@@ -207,6 +248,14 @@
                     <a href="#sobre">Sobre</a>
                     <a href="#servicos">Serviços</a>
                     <a href="#contato">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/fisioterapeuta.micheletavares/" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5521974701741?text=Olá! Gostaria de agendar uma consulta." target="_blank" class="social-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
