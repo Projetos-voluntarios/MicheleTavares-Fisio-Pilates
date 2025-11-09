@@ -56,20 +56,11 @@
                 <i class="fas fa-check-circle"></i>
             </div>
             <h1>Mensagem Enviada com Sucesso!</h1>
-            <p>Obrigada pelo seu contato, <strong id="user-name"></strong>!</p>
+            <p>Obrigada pelo seu contato!</p>
             <p>Recebi sua mensagem e retornarei o mais breve possível.</p>
             <p><em>Michele Tavares</em></p>
             <a href="../index.html" class="btn-voltar">Voltar ao Site</a>
         </div>
     </div>
-
-    <script>
-        // Tenta pegar o nome da URL (opcional)
-        const urlParams = new URLSearchParams(window.location.search);
-        const userName = urlParams.get('name');
-        if (userName) {
-            document.getElementById('user-name').textContent = userName;
-        }
-    </script>
 </body>
 </html>
