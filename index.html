@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Michele Tavares - Fisioterapeuta e Professora de Pilates em Paracambi, Rio de Janeiro. Atendimento especializado em reabilitação e exercícios terapêuticos.">
-    <meta name="keywords" content="fisioterapia, pilates, Paracambi, Rio de Janeiro, reabilitação, exercícios terapêuticos, Michele Tavares">
+    <meta name="keywords" content="fisioterapeuta, pilates, Paracambi, Rio de Janeiro, reabilitação, exercícios terapêuticos, Michele Tavares">
     <meta name="author" content="Michele Tavares">
     
     <!-- Open Graph -->
@@ -18,54 +18,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('.contato-form');
-        const messageDiv = document.getElementById('form-message');
-        
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                
-                // Mostrar loading
-                showMessage('Enviando sua mensagem...', 'loading');
-                submitBtn.textContent = 'Enviando...';
-                submitBtn.disabled = true;
-                
-                // Opcional: Timeout para caso demore muito
-                setTimeout(() => {
-                    if (submitBtn.disabled) {
-                        showMessage('Ainda processando seu envio...', 'loading');
-                    }
-                }, 3000);
-            });
-        }
-        
-        function showMessage(text, type) {
-            messageDiv.textContent = text;
-            messageDiv.className = '';
-            messageDiv.style.display = 'block';
-            
-            switch(type) {
-                case 'success':
-                    messageDiv.classList.add('message-success');
-                    break;
-                case 'error':
-                    messageDiv.classList.add('message-error');
-                    break;
-                case 'loading':
-                    messageDiv.classList.add('message-loading');
-                    break;
-            }
-            
-            // Rolagem suave até a mensagem
-            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    });
-</script>
 
 <body>
     <header class="header">
@@ -78,6 +34,7 @@
                 <ul class="nav-menu">
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -131,6 +88,39 @@
             </div>
         </section>
 
+        <!-- SEÇÃO DE LOCALIZAÇÃO COM MAPA -->
+        <section id="localizacao" class="localizacao">
+            <div class="container">
+                <h2>Localização</h2>
+                <div class="localizacao-grid">
+                    <div class="mapa-container">
+                        <div id="map" class="mapa"></div>
+                    </div>
+                    <div class="localizacao-info">
+                        <h3>Venha me visitar</h3>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Endereço:</strong>
+                                <p>RJ-127, 11955 - Barreira<br>Paracambi - RJ, 26600-000</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Horário de Atendimento:</strong>
+                                <p>Segunda a Sexta: 8h às 19h<br>Sábado: Temporariamente indisponível</p>
+                            </div>
+                        </div>
+                        <a href="https://maps.google.com/?q=RJ-127,11955,Barreira,Paracambi,RJ,26600-000" target="_blank" class="btn btn-mapa">
+                            <i class="fas fa-directions"></i>
+                            Como Chegar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SEÇÃO DE CONTATO COM INFORMAÇÕES E FORMULÁRIO -->
         <section id="contato" class="contato">
             <div class="container">
@@ -139,8 +129,6 @@
                     <!-- Informações de Contato -->
                     <div class="info-contato">
                         <div class="info-contato-grid">
-                            <!-- Título em linha única -->
-                            <h3 class="info-contato-titulo">Entre em Contato</h3>
                             
                             <!-- Imagem do lado esquerdo -->
                             <div class="info-contato-imagem">
@@ -149,13 +137,6 @@
                             
                             <!-- Informações do lado direito -->
                             <div class="info-contato-detalhes">
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div>
-                                        <strong>Localização:</strong>
-                                        <p>Paracambi, Rio de Janeiro</p>
-                                    </div>
-                                </div>
                                 <div class="info-item">
                                     <i class="fas fa-phone"></i>
                                     <div>
@@ -168,13 +149,6 @@
                                     <div>
                                         <strong>Email:</strong>
                                         <p><a href="mailto:contato@micheletavares.com">contato@micheletavares.com</a></p>
-                                    </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-clock"></i>
-                                    <div>
-                                        <strong>Horário de Atendimento:</strong>
-                                        <p>Segunda a Sexta: 8h às 19h<br>Sábado: Temporariamente indisponível</p>
                                     </div>
                                 </div>
                             </div>
@@ -198,13 +172,15 @@
                     
                     <!-- Formulário de Contato -->
                     <form class="contato-form" action="https://formsubmit.co/marinamicas@gmail.com" method="POST">
-                        <h3>Envie uma Mensagem</h3>
-                        
-                        <input type="hidden" name="_subject" value="Nova mensagem do site - Michele Tavares">
+                        <!-- Configurações do FormSubmit -->
+                        <input type="hidden" name="_autoresponse" value="Olá! Recebi sua mensagem e agradeço pelo contato. Em breve retornarei. Atenciosamente, Michele Tavares">
                         <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="Nova mensagem do site - Michele Tavares">
                         <input type="hidden" name="_next" value="https://projetos-voluntarios.github.io/MicheleTavares-Fisio-Pilates/pages/obrigada.html">
                         <input type="hidden" name="_captcha" value="false">
                         
+                        <!-- Seus campos normais -->
+                        <h3>Envie uma Mensagem</h3>
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Seu nome" required>
                         </div>
@@ -223,15 +199,6 @@
                 </div>
 
                 <div id="form-message" style="display: none;"></div>
-
-                <script>
-                // JavaScript simplificado para feedback
-                document.querySelector('.contato-form')?.addEventListener('submit', function() {
-                    const btn = this.querySelector('button[type="submit"]');
-                    btn.textContent = 'Enviando...';
-                    btn.disabled = true;
-                });
-                </script>
             </div>
         </section>
     </main>
@@ -247,6 +214,7 @@
                 <div class="footer-links">
                     <a href="#sobre">Sobre</a>
                     <a href="#servicos">Serviços</a>
+                    <a href="#localizacao">Localização</a>
                     <a href="#contato">Contato</a>
                 </div>
                 <div class="footer-social">
@@ -263,5 +231,91 @@
             </div>
         </div>
     </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Inicialização do Mapa
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar mapa
+            const map = L.map('map').setView([-22.6100, -43.6619], 15);
+            
+            // Adicionar tile layer do OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Adicionar marcador personalizado
+            const customIcon = L.divIcon({
+                html: `
+                    <div style="background-color: #62BAA1; width: 40px; height: 40px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                        <div style="background-color: white; width: 15px; height: 15px; border-radius: 50%;"></div>
+                    </div>
+                `,
+                className: 'custom-marker',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40]
+            });
+            
+            // Adicionar marcador
+            const marker = L.marker([-22.6100, -43.6619], { icon: customIcon }).addTo(map);
+            
+            // Adicionar popup
+            marker.bindPopup(`
+                <div style="padding: 10px; text-align: center;">
+                    <h3 style="margin: 0 0 5px 0; color: #034d2c;">Michele Tavares</h3>
+                    <p style="margin: 0; color: #333; font-weight: 500;">Fisioterapia & Pilates</p>
+                    <p style="margin: 5px 0 0 0; color: #666; font-size: 12px;">RJ-127, 11955 - Barreira, Paracambi - RJ</p>
+                </div>
+            `).openPopup();
+            
+            // JavaScript do formulário
+            const form = document.querySelector('.contato-form');
+            const messageDiv = document.getElementById('form-message');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    // Mostrar loading
+                    showMessage('Enviando sua mensagem...', 'loading');
+                    submitBtn.textContent = 'Enviando...';
+                    submitBtn.disabled = true;
+                    
+                    // Timeout para caso demore muito
+                    setTimeout(() => {
+                        if (submitBtn.disabled) {
+                            showMessage('Ainda processando seu envio...', 'loading');
+                        }
+                    }, 3000);
+                });
+            }
+            
+            function showMessage(text, type) {
+                if (!messageDiv) return;
+                
+                messageDiv.textContent = text;
+                messageDiv.className = '';
+                messageDiv.style.display = 'block';
+                
+                switch(type) {
+                    case 'success':
+                        messageDiv.classList.add('message-success');
+                        break;
+                    case 'error':
+                        messageDiv.classList.add('message-error');
+                        break;
+                    case 'loading':
+                        messageDiv.classList.add('message-loading');
+                        break;
+                }
+                
+                // Rolagem suave até a mensagem
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    </script>
 </body>
 </html>

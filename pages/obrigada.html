@@ -4,59 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagem Enviada - Michele Tavares</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .thank-you-container {
+        .obrigada-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 4rem 2rem;
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .obrigada-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
         }
         
         .success-icon {
             font-size: 4rem;
-            color: #28a745;
-            margin-bottom: 2rem;
+            color: #62BAA1;
+            margin-bottom: 1.5rem;
         }
         
-        .back-link {
+        .btn-voltar {
             display: inline-block;
             margin-top: 2rem;
-            color: #4A90E2;
+            padding: 12px 30px;
+            background: #62BAA1;
+            color: white;
             text-decoration: none;
-            font-weight: 500;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
         
-        .back-link:hover {
-            text-decoration: underline;
+        .btn-voltar:hover {
+            background: #034d2c;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <h1>Michele Tavares</h1>
-                    <span>Fisioterapia & Pilates</span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class="main" style="margin-top: 80px;">
-        <section class="thank-you-container">
-            <div class="success-icon">✓</div>
-            <h2>Mensagem Enviada com Sucesso!</h2>
+    <div class="obrigada-container">
+        <div class="obrigada-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Mensagem Enviada com Sucesso!</h1>
             <p>Obrigada pelo seu contato, <strong id="user-name"></strong>!</p>
-            <p>Recebi sua mensagem e entrarei em contato em breve.</p>
-            <p>Enquanto isso, você pode voltar para a página principal.</p>
-            <a href="index.html" class="back-link">← Voltar para o site</a>
-        </section>
-    </main>
+            <p>Recebi sua mensagem e retornarei o mais breve possível.</p>
+            <p><em>Michele Tavares</em></p>
+            <a href="../index.html" class="btn-voltar">Voltar ao Site</a>
+        </div>
+    </div>
 
     <script>
-        // Mostrar o nome do usuário se disponível na URL
+        // Tenta pegar o nome da URL (opcional)
         const urlParams = new URLSearchParams(window.location.search);
         const userName = urlParams.get('name');
         if (userName) {
