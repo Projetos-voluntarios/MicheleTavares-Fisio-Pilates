@@ -12,19 +12,67 @@
     <meta property="og:description" content="Atendimento especializado em fisioterapia e pilates em Paracambi, RJ">
     <meta property="og:type" content="website">
     
-    <title>Michele Tavares - Fisioterapeuta e Professora de Pilates | Paracambi - RJ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Michele Tavares - Fisioterapia & Pilates | Paracambi - RJ</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contato-form');
+        const messageDiv = document.getElementById('form-message');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                // Mostrar loading
+                showMessage('Enviando sua mensagem...', 'loading');
+                submitBtn.textContent = 'Enviando...';
+                submitBtn.disabled = true;
+                
+                // Opcional: Timeout para caso demore muito
+                setTimeout(() => {
+                    if (submitBtn.disabled) {
+                        showMessage('Ainda processando seu envio...', 'loading');
+                    }
+                }, 3000);
+            });
+        }
+        
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = '';
+            messageDiv.style.display = 'block';
+            
+            switch(type) {
+                case 'success':
+                    messageDiv.classList.add('message-success');
+                    break;
+                case 'error':
+                    messageDiv.classList.add('message-error');
+                    break;
+                case 'loading':
+                    messageDiv.classList.add('message-loading');
+                    break;
+            }
+            
+            // Rolagem suave até a mensagem
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+</script>
+
 <body>
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <div class="logo">
                     <h1>Michele Tavares</h1>
-                    <span>Fisioterapeuta & Professora de Pilates</span>
+                    <span>Fisioterapia & Pilates</span>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#sobre">Sobre</a></li>
@@ -105,25 +153,43 @@
                         </div>
                         <div class="info-item">
                             <strong>Horário de Atendimento:</strong>
-                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                            <p>Segunda a Sexta: 8h às 19h<br>Sábado: Temporariamente indisponível</p>
                         </div>
                     </div>
-                    <form class="contato-form">
+                    <form class="contato-form" action="https://formsubmit.co/marinamicas@gmail.com" method="POST">
                         <h3>Envie uma Mensagem</h3>
+                        
+                        <input type="hidden" name="_subject" value="Nova mensagem do site - Michele Tavares">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://projetos-voluntarios.github.io/MicheleTavares-Fisio-Pilates/obrigada.html">
+                        <input type="hidden" name="_captcha" value="false">
+                        
                         <div class="form-group">
-                            <input type="text" placeholder="Seu nome" required>
+                            <input type="text" name="name" placeholder="Seu nome" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Seu email" required>
+                            <input type="email" name="email" placeholder="Seu email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Seu telefone">
+                            <input type="tel" name="phone" placeholder="Seu telefone">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
                         </div>
+                        
                         <button type="submit" class="btn">Enviar Mensagem</button>
                     </form>
+
+                    <div id="form-message" style="display: none;"></div>
+
+                    <script>
+                    // JavaScript simplificado para feedback
+                    document.querySelector('.contato-form')?.addEventListener('submit', function() {
+                        const btn = this.querySelector('button[type="submit"]');
+                        btn.textContent = 'Enviando...';
+                        btn.disabled = true;
+                    });
+                    </script>
                 </div>
             </div>
         </section>
@@ -134,7 +200,7 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>Michele Tavares</h3>
-                    <p>Fisioterapeuta e Professora de Pilates</p>
+                    <p>Fisioterapia & Pilates</p>
                     <p>Paracambi - Rio de Janeiro</p>
                 </div>
                 <div class="footer-links">
@@ -144,7 +210,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Michele Tavares. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Michele Tavares. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

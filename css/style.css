@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: #4A90E2;
-    --secondary-color: #2C3E50;
+    --primary-color: #62BAA1;
+    --secondary-color: #034d2c;
     --accent-color: #E74C3C;
     --text-color: #333333;
     --light-gray: #F5F5F5;
@@ -324,4 +324,38 @@ section h2 {
     .servicos-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Estilos para mensagens do formulário */
+#form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.message-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message-loading {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Estilo para botão desabilitado */
+.btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.7;
 }

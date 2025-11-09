@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Enviada - Michele Tavares</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 2rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <h1>Michele Tavares</h1>
+                    <span>Fisioterapia & Pilates</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main" style="margin-top: 80px;">
+        <section class="thank-you-container">
+            <div class="success-icon">✓</div>
+            <h2>Mensagem Enviada com Sucesso!</h2>
+            <p>Obrigada pelo seu contato, <strong id="user-name"></strong>!</p>
+            <p>Recebi sua mensagem e entrarei em contato em breve.</p>
+            <p>Enquanto isso, você pode voltar para a página principal.</p>
+            <a href="index.html" class="back-link">← Voltar para o site</a>
+        </section>
+    </main>
+
+    <script>
+        // Mostrar o nome do usuário se disponível na URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('name');
+        if (userName) {
+            document.getElementById('user-name').textContent = userName;
+        }
+    </script>
+</body>
+</html>
